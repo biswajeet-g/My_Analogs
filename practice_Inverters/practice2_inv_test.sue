@@ -1,0 +1,19 @@
+proc SCHEMATIC_practice2_inv_test {} {
+make input -name vin -origin {-340 60}
+make output -name vout -origin {220 60}
+make global -orient RXY -name gnd -origin {150 90}
+make global -name vdd -origin {150 140}
+make global -name gnd -origin {-260 250}
+make practice2_inv -name xi0 -origin {-60 70}
+make pulse -name V0 -pulse_voltage 1.3V -origin {-260 150}
+  make_wire 40 100 150 100
+  make_wire 40 60 220 60
+  make_wire 40 120 150 120
+  make_wire -260 60 -340 60
+  make_wire -260 60 -160 60
+  make_wire -260 190 -260 250
+  make_wire -260 60 -260 110
+  make_wire 150 90 150 100
+  make_wire 150 120 150 140
+}
+

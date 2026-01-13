@@ -1,0 +1,45 @@
+proc SCHEMATIC_practice1_inv {} {
+make nmos4 -name M0 -origin {1490 280}
+make pmos4 -name M1 -origin {1490 510}
+make input -name Vin -origin {1200 400}
+make output -name Vout -origin {1660 390}
+make inout -name Gnd -origin {1490 630}
+make inout -name Vdd -origin {1490 110}
+  make_wire 1430 280 1340 280
+  make_wire 1340 510 1430 510
+  make_wire 1490 280 1570 280
+  make_wire 1570 280 1570 170
+  make_wire 1570 170 1490 170
+  make_wire 1490 510 1580 510
+  make_wire 1580 590 1490 590
+  make_wire 1340 400 1200 400
+  make_wire 1660 390 1490 390
+  make_wire 1490 110 1490 170
+  make_wire 1490 170 1490 240
+  make_wire 1490 320 1490 390
+  make_wire 1490 390 1490 470
+  make_wire 1490 550 1490 590
+  make_wire 1490 590 1490 630
+  make_wire 1580 510 1580 590
+  make_wire 1340 280 1340 400
+  make_wire 1340 400 1340 510
+}
+
+proc ICON_practice1_inv args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {example_param 1.0}}
+icon_term -type input -origin {-100 -10} -name Vin
+icon_term -type output -origin {100 -10} -name Vout
+icon_term -type inout -origin {100 30} -name Gnd
+icon_term -type inout -origin {100 50} -name Vdd
+icon_property -origin {-90 -10} -label Vin
+icon_property -origin {90 -10} -anchor e -label Vout
+icon_property -origin {90 30} -anchor e -label Gnd
+icon_property -origin {90 50} -anchor e -label Vdd
+icon_property -origin {-90 -60} -label {$name}
+icon_property -origin {-90 -40} -label practice1_inv
+  icon_line -100 -50 100 -50 100 70 -100 70 -100 -50
+icon_property -origin {-90 80} -label {example_param=$example_param}
+  icon_property -origin {-90 140} -type user -name name -default x
+  icon_property -origin {-90 160} -type user -name example_param -default 1.0
+}
+
