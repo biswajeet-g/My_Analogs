@@ -1,0 +1,63 @@
+proc SCHEMATIC_practice3_nand {} {
+make pmos4 -orient RX -name M0 -origin {10 120}
+make pmos4 -name M1 -origin {-170 120}
+make nmos4 -name M2 -origin {-80 400}
+make nmos4 -name M3 -origin {-80 570}
+make inout -name Gnd -origin {-80 640}
+make inout -name Vdd -origin {-90 -90}
+make input -name A -origin {-370 120}
+make input -orient RXY -name B -origin {250 120}
+make output -name vout -origin {0 320}
+  make_wire -170 80 -170 10
+  make_wire 10 10 10 80
+  make_wire -170 160 -170 280
+  make_wire 10 280 10 160
+  make_wire -90 10 -90 -90
+  make_wire -90 120 -170 120
+  make_wire -90 120 10 120
+  make_wire -170 10 -90 10
+  make_wire -90 10 10 10
+  make_wire -90 10 -90 120
+  make_wire -80 280 -170 280
+  make_wire -80 280 10 280
+  make_wire -140 400 -310 400
+  make_wire -310 120 -230 120
+  make_wire -310 120 -370 120
+  make_wire -140 570 -310 570
+  make_wire -310 690 120 690
+  make_wire 120 690 120 120
+  make_wire 120 120 70 120
+  make_wire 120 120 250 120
+  make_wire -310 570 -310 690
+  make_wire -80 440 -80 530
+  make_wire -310 120 -310 400
+  make_wire -80 400 0 400
+  make_wire 0 620 -80 620
+  make_wire -80 620 -80 610
+  make_wire -80 620 -80 640
+  make_wire -80 570 0 570
+  make_wire 0 570 0 400
+  make_wire 0 570 0 620
+  make_wire -80 320 0 320
+  make_wire -80 280 -80 320
+  make_wire -80 320 -80 360
+}
+
+proc ICON_practice3_nand args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {example_param 1.0}}
+icon_term -type input -origin {-100 0} -name A
+icon_term -type input -origin {-100 20} -name B
+icon_term -type inout -origin {100 20} -name Gnd
+icon_term -type inout -origin {100 40} -name Vdd
+icon_property -origin {-90 0} -label A
+icon_property -origin {-90 20} -label B
+icon_property -origin {80 20} -anchor e -label Gnd
+icon_property -origin {80 40} -anchor e -label Vdd
+icon_property -origin {-90 -50} -label {$name}
+icon_property -origin {-90 -30} -label practice3_nand
+  icon_line -100 -40 100 -40 100 60 -100 60 -100 -40
+icon_property -origin {-90 70} -label {example_param=$example_param}
+  icon_property -origin {-90 130} -type user -name name -default x
+  icon_property -origin {-90 150} -type user -name example_param -default 1.0
+}
+
